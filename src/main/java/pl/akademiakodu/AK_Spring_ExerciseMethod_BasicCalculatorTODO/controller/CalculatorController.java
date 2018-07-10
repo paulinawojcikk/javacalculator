@@ -80,7 +80,16 @@ public class CalculatorController {
      */
     @RequestMapping(params = "div", method = RequestMethod.POST)
     public String division(@ModelAttribute("operationModel")OperationModel operationModel, Model model) {
-        model.addAttribute("result", calculatorSimple.division(operationModel.getA(), operationModel.getB()));
+
+        try {
+
+         model.addAttribute("result", calculatorSimple.division(operationModel.getA(),operationModel.getB()));
+        }
+        catch (IllegalArgumentException e) { //e to nazwa wyjątku
+            model.addAttribute("result",e.getMessage());
+        }
+
+        model.addAttribute("result");
         return "index";
     }
 
