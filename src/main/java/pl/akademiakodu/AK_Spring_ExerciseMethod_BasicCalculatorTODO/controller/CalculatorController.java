@@ -139,5 +139,13 @@ public class CalculatorController {
     public String factorial(@ModelAttribute("operationModel")OperationModel operationModel, Model model) {
         model.addAttribute("result", calculatorAverage.factorial(operationModel.getA()));
         return "index";
+
+//        @GetMapping
+//        @ResponseBody
+//        public String home() {
+//            return "Hello world";
+//        }
+
+
     }
 }
